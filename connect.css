@@ -1,0 +1,14 @@
+.connect-title {
+  text-align: center;
+  margin-left: 18%;
+  margin-right: 18%;
+  margin-top: 24%;
+}
+
+.connect-button-img {
+  width: 50%;
+  margin-top: 8px;
+  margin-left: 25%;
+  cursor: pointer;
+}
+

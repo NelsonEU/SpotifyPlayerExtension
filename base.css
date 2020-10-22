@@ -1,0 +1,33 @@
+body {
+  background-color: #181818 !important;
+}
+
+.main-container {
+  width: 384px;
+  height: 576px;
+  color: #1DB954;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 4px;
+}
+
+.header {
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.header-separator {
+  height: 1px;
+  background-color: #1DB954;
+  margin: 0px !important;
+}
+
+.main-title {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.secondary-title {
+  font-size: 20px;
+  color: whitesmoke;
+}

@@ -1,13 +1,16 @@
 body {
-  background-color: #181818 !important;
+  background-color: #282828 !important;
+  width: 384px !important;
 }
 
 .main-container {
-  width: 384px;
-  height: 576px;
   color: #1DB954;
   font-family: 'Open Sans', sans-serif;
   border-radius: 4px;
+}
+
+.whitesmoke {
+  color: whitesmoke
 }
 
 .header {
@@ -18,13 +21,14 @@ body {
 
 .header-separator {
   height: 1px;
-  background-color: #1DB954;
+  background-color: whitesmoke;
   margin: 0px !important;
 }
 
 .main-title {
   font-weight: bold;
-  font-size: 32px;
+  color: whitesmoke;
+  font-size: 28px;
 }
 
 .secondary-title {

@@ -55,7 +55,11 @@
 }
 
 #total-time {
-  margin-left: 86%;
+  margin-left: 83%;
+}
+
+#timing-container {
+  margin-bottom: 24px;
 }
 
 #player-buttons-container {
@@ -64,4 +68,18 @@
 
 .player-buttons{
   text-align: center;
+}
+
+#previous-button {
+  padding-top: 16px;
+  cursor: pointer;
+}
+
+#next-button {
+  padding-top: 16px;
+  cursor: pointer;
+}
+
+#play-button {
+  cursor: pointer;
 }

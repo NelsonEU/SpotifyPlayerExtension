@@ -39,3 +39,7 @@ body {
 #empty-view {
   display: none;
 }
+
+#loading-view {
+  padding-top: 48px;
+}

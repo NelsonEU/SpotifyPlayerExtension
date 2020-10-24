@@ -10,7 +10,15 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="connect-view" id="loading-view">
+      <div class="loading-view" id="loading-view">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div>
+          <img src="img/connectButtonImg.png" alt="spotifyLogo" class="connect-button-img">
+        </div>
       </div>      
       <div class="connect-view" id="connect-view">
         <div>
@@ -192,7 +200,7 @@
           </div>
         </div>
       </div>
-      <div class="empty-view">
+      <div class="empty-view" id="empty-view">
         <div>
           <h2 class="secondary-title connect-title">Click here to open Spotify and start playing:</h2>
           <img src="img/connectButtonImg.png" alt="spotifyLogo" class="connect-button-img" id="open-spotify-button">

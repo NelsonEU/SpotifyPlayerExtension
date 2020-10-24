@@ -18,10 +18,6 @@ $(function() {
     if (result) {
       accessToken = result.accessToken;
       fetchSong();
-      window.setInterval(function() {
-        currentTime += 1000;
-        fetchSong();
-      }, 1000);
     } else {
       showConnectView();
     }

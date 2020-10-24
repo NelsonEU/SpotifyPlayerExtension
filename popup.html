@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotify Player</title>
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/connect.css">
+    <link rel="stylesheet" href="style/player.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="connect-view" id="connect-view">
+        <div>
+          <h2 class="secondary-title connect-title">Click here to connect your Spotify Account:</h2>
+          <img src="img/connectButtonImg.png" alt="spotifyLogo" class="connect-button-img" id="connect-button">
+        </div>
+      </div>
+      <div class="player-view" id="player-view">
+        <div class="music-container">
+          <div>
+            <img src="img/defaultMusicImg.png" class="music-img" id="music-img">
+            <h3 class="music-title whitesmoke" id="music-title">The Virtual Zone</h3>
+            <h4 class="music-artist whitesmoke" id="music-artist">Mitch Murder</h4>
+          </div>
+          <div class="player-container">
+            <div id="timeline">
+              <div id="playhead"></div>
+            </div>
+            <div id="timing-container">
+              <div class="timing" id="current-time">
+              </div>
+              <div class="timing" id="total-time">
+              </div>
+            </div>
+            <div class="container">
+              <div class="row" id="player-buttons-container">
+                <div class="col-4 player-buttons" id="previous-button">
+                  <?xml version="1.0" encoding="iso-8859-1"?>
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#1DB954" width="40" height="40" x="0px" y="0px"
+	 viewBox="0 0 493.52 493.52" style="enable-background:new 0 0 493.52 493.52;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M447.126,0.236c-10.056,0-20.884,4.12-32.148,11.884L140.882,200.952c-17.644,12.152-27.252,28.504-27.252,46.06
+			c-0.004,17.56,9.78,33.924,27.428,46.076L415.39,481.784c11.284,7.768,22.568,11.736,32.604,11.736h0.012
+			c10.76,0,18.916-4.404,25.276-12.972c6.268-8.46,8.688-20.476,8.688-35.012V48.508C481.974,18.74,469.186,0.236,447.126,0.236z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M53.106,0.036L39.894,0C25.018,0,11.55,12.112,11.55,26.996v439.42c0,14.884,13.024,27.1,27.908,27.1h0.456l12.948-0.072
+			c14.88,0,28.092-12.164,28.092-27.048V27.028C80.958,12.144,67.97,0.036,53.106,0.036z"/>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+                  </svg>
+                </div>
+                <div class="col-4 player-buttons" id="play-button">
+                  <?xml version="1.0" encoding="iso-8859-1"?>
+                  <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    fill="#1DB954" width="75" height="75" viewBox="0 0 275.725 275.725" style="enable-background:new 0 0 275.725 275.725;"
+                  	 xml:space="preserve">
+                  <g>
+                  	<g>
+                  		<path d="M137.862,0C61.726,0,0,61.726,0,137.862c0,76.14,61.726,137.862,137.862,137.862c76.139,0,137.862-61.723,137.862-137.862
+                  			C275.725,61.726,214.001,0,137.862,0z M125.639,148.395L75.67,177.051c-8.606,4.93-15.583,0.891-15.583-9.041v-57.115
+                  			c0-9.926,6.978-13.973,15.583-9.03l49.969,28.656C134.245,135.455,134.245,143.455,125.639,148.395z M161.371,166.694
+                  			c0,9.922-5.442,17.968-12.169,17.968c-6.722,0-12.171-8.046-12.171-17.968V112.21c0-9.921,5.449-17.971,12.171-17.971
+                  			c6.727,0,12.169,8.05,12.169,17.971V166.694z M211.878,166.694c0,9.922-5.447,17.968-12.174,17.968
+                  			c-6.726,0-12.174-8.046-12.174-17.968V112.21c0-9.921,5.448-17.971,12.174-17.971c6.727,0,12.174,8.05,12.174,17.971V166.694z"/>
+                  	</g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  </svg>
+                </div>
+                <div class="col-4 player-buttons" id="next-button">
+                  <?xml version="1.0" encoding="iso-8859-1"?>
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#1DB954"  width="40" height="40" x="0px" y="0px"
+	 viewBox="0 0 493.796 493.796" style="enable-background:new 0 0 493.796 493.796;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M355.938,200.956L81.414,12.128c-11.28-7.776-23.012-11.88-33.056-11.88c-22.052,0-36.672,18.496-36.672,48.26v397.036
+			c0,14.54,4.228,26.688,10.496,35.144c6.364,8.572,16.32,13.108,27.076,13.108c10.04,0,21.308-4.112,32.584-11.876l274.276-188.828
+			c17.632-12.152,27.3-28.508,27.296-46.076C383.414,229.456,373.594,213.1,355.938,200.956z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<g>
+			<path d="M456.446,493.672l-0.293-0.004c-0.048,0-0.095,0.004-0.143,0.004H456.446z"/>
+			<path d="M455.638,0L444.29,0.032c-14.86,0-27.724,12.112-27.724,26.992v439.368c0,14.896,12.652,27.124,27.532,27.124
+				l12.055,0.152c14.805-0.079,25.957-12.412,25.957-27.252V26.996C482.11,12.116,470.51,0,455.638,0z"/>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="empty-view">
+        <div>
+          <h2 class="secondary-title connect-title">Click here to open Spotify and start playing:</h2>
+          <img src="img/connectButtonImg.png" alt="spotifyLogo" class="connect-button-img" id="open-spotify-button">
+        </div>        
+      </div>
+    </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popup.js"></script>
+  </body>
+</html>

@@ -12,6 +12,26 @@ $(function() {
 
 
 
+  //Opening Flow
+  showLoadingView();
+  chrome.storage.local.get(['accessToken'], function(result) {
+    if (result) {
+      accessToken = result.accessToken;
+      fetchSong();
+      window.setInterval(function() {
+        currentTime += 1000;
+        fetchSong();
+      }, 1000);
+    } else {
+      showConnectView();
+    }
+  });
+
+
+
+
+
+
   //Listeners
   //Timeline click
   $('#timeline').on('click', function(event) {
@@ -65,18 +85,6 @@ $(function() {
   });
 
 
-
-
-
-  //Opening Flow
-  chrome.storage.local.get(['accessToken'], function(result) {
-    if (result) {
-      accessToken = result.accessToken;
-      fetchSong();
-    } else {
-      showConnectView();
-    }
-  });
 
 
 
@@ -192,21 +200,31 @@ $(function() {
 
   //Utilities functions
   function showConnectView() {
+    $('#loading-view').hide();
     $('#player-view').hide();
     $('#empty-view').hide();
     $('#connect-view').show();
   }
 
   function showPlayerView() {
+    $('#loading-view').hide();
     $('#connect-view').hide();
     $('#empty-view').hide();
     $('#player-view').show();
   }
 
   function showEmptyView() {
+    $('#loading-view').hide();
     $('#connect-view').hide();
     $('#player-view').hide();
     $('#empty-view').show();
+  }
+
+  function showLoadingView() {
+    $('#connect-view').hide();
+    $('#player-view').hide();
+    $('#empty-view').hide();
+    $('#loading-view').show();
   }
 
   function mouseDown() {
@@ -224,13 +242,14 @@ $(function() {
   
   function moveplayhead(event) {
       var newMargLeft = event.clientX - getPosition(timeline);
-      var timelineWidth = $('#timeline').width() - $('#playhead').width();
+      var playheadWidth = $('#playhead').width();
+      var timelineWidth = $('#timeline').width() - playheadWidth;
   
       if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
         $('#playhead').css('margin-left', newMargLeft + "px");
       }
       if (newMargLeft < 0) {
-        $('#playhead').css('margin-left', "0px");
+        $('#playhead').css('margin-left', -playheadWidth/2 + "px");
       }
       if (newMargLeft > timelineWidth) {
         $('#playhead').css('margin-left', timelineWidth + "px");
@@ -274,9 +293,9 @@ $(function() {
 
   function launchPlayhead() {
     interval = window.setInterval(function() {
-      currentTime += 50;
+      currentTime += 1000;
       updateTimeline();
-    }, 50);
+    }, 1000);
   }
 
   function getTiming(millis) {

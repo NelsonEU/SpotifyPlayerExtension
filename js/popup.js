@@ -6,11 +6,9 @@ $(function() {
   var playing = false;
   var currentTime = 0;
   var totalTime = 0;
-
-
-
-
-
+  var fetchInterval = window.setInterval(function() {
+    if (!onplayhead) fetchSong();
+  }, 2000);
 
   //Opening Flow
   showLoadingView();
@@ -48,11 +46,12 @@ $(function() {
     changeSong('next');
   });
   //Start/Pause click
-  $('#play-button').on('click', function(event) {
+  $('#play-pause-button').on('click', function(event) {
     togglePlayback();
   });
   //Connect click
   $('#connect-button').on('click', function() {
+    console.log('1 - on a click connect');
     var clientId = 'c22cb7b22201499eb8c0b7738ebba1d8';
     var redirectUri = chrome.identity.getRedirectURL('spotify');
     var scopes = "user-read-currently-playing user-modify-playback-state"
@@ -65,11 +64,15 @@ $(function() {
       'interactive': true,  
     },
     function(redirectUrl) {
+      console.log('2 - on a recu la reponse du connect: ' + redirectUrl);
       if (redirectUrl) {
+        console.log('3 - on a le redirect URL');
         accessToken = redirectUrl.substring(redirectUrl.lastIndexOf('access_token=') + 13, redirectUrl.lastIndexOf('&token_type'));
+        console.log('3bis - avec accessToken: ' + accessToken);
+        fetchSong();
         chrome.storage.local.set({ accessToken: accessToken }, function(result) {
           if (result) {
-            fetchSong();
+            console.log('4 - on a save le token, on va fetch mtn');
           }
         });
       }
@@ -93,10 +96,13 @@ $(function() {
       type: 'GET',
       headers: { "Authorization": "Bearer " + accessToken },
       success: function(data) {
+        console.log('5 - on a fetch');
         if (data) {
+          console.log('6 - on a une chanson, on va show le player view');
           updateSong(data);
           showPlayerView();
         } else {
+          console.log('6 - on a pas de chanson, on show que dalle');
           showEmptyView();
         }
       },
@@ -160,8 +166,7 @@ $(function() {
   }
   
   function togglePlayback() {
-    var action;
-    playing ? action = 'pause' : action = 'play';
+    var action = playing ? 'pause' : action = 'play';
     playing = !playing;
 
     $.ajax({
@@ -170,8 +175,10 @@ $(function() {
       headers: { "Authorization": "Bearer " + accessToken },
       success: function() {
         if (playing) {
+          showPauseButton();
           fetchSong();
         } else {
+          showPlayButton();
           if (interval) {
             clearInterval(interval);
           }
@@ -223,13 +230,23 @@ $(function() {
     $('#loading-view').show();
   }
 
+  function showPlayButton() {
+    $('#pause-button').hide();
+    $('#play-button').show();
+  }
+
+  function showPauseButton() {
+    $('#play-button').hide();
+    $('#pause-button').show();
+  }
+
   function mouseDown() {
     onplayhead = true;
     window.addEventListener('mousemove', moveplayhead, true);
   }
   
   function mouseUp(event) {
-    if (onplayhead == true) {
+    if (onplayhead) {
         moveplayhead(event);
         window.removeEventListener('mousemove', moveplayhead, true);
     }
@@ -284,6 +301,9 @@ $(function() {
     updateTimeline();
     if (playing) {
       launchPlayhead();
+      showPauseButton();
+    } else {
+      showPlayButton();
     }
   }
 
@@ -307,7 +327,7 @@ $(function() {
       var timelineWidth = $('#timeline').width() - $('#playhead').width();
       var playPercent = timelineWidth * (currentTime/totalTime);
       $('#current-time').text(getTiming(currentTime));
-      $('#playhead').css('margin-left', playPercent + "px");
+      if (!onplayhead) $('#playhead').css('margin-left', playPercent + "px");
     }
   }
 });

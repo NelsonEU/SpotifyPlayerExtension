@@ -1,12 +1,15 @@
 body {
-  background-color: #282828 !important;
-  width: 384px !important;
+  background-color: transparent !important;
 }
 
 .main-container {
+  background-color: #282828 !important;
+  width: 384px !important;
+  border-radius: 8px;
   color: #1DB954;
   font-family: 'Open Sans', sans-serif;
   border-radius: 4px;
+  padding: 12px;
 }
 
 .whitesmoke {

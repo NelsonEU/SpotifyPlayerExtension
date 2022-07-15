@@ -66,6 +66,7 @@
 
 #player-buttons-container {
   margin-bottom: 36px;
+  align-items: baseline;
 }
 
 .player-buttons{
@@ -77,11 +78,36 @@
   cursor: pointer;
 }
 
+#previous-button:active {
+  transform: scale(1.2);
+}
+
 #next-button {
   padding-top: 16px;
   cursor: pointer;
 }
 
+#next-button:active {
+  transform: scale(1.2);
+}
+
 #play-pause-button {
   cursor: pointer;
+}
+
+#play-button {
+  animation: transformer 0.1s ease-in-out 0s 1;
+}
+
+#pause-button {
+  animation: transformer 0.1s ease-in-out 0s 1;
+}
+
+@keyframes transformer {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform:  scale(1.2);
+  }
 }
